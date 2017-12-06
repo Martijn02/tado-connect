@@ -24,18 +24,24 @@ When this works as expected, set a cron to run the script ~every 5 minutes.
 ## Getting tado data
 
 ### Your homeId:
+```
 https://my.tado.com/api/v2/me?username=<your tado login>&password=<your tado password>
+```
 
 ### Your home geolocation
 
 You can lookup your geolocation using google maps, or do a call to 
+```
 https://my.tado.com/api/v2/homes/<your tado homeId>?username=<your tado login>&password=<your tado password>
+```
 
 ### Create a tado device
 
 This script uses one or more virtual tado devices, that are located your home geolocation, or have geolocation disabled. This causes the tado to think that someone is at your home, or not. 
 
+```
 https://my.tado.com/mobile/1.9/createAppUser?username=<your tado login>&password=<your tado password>&nickname=<name the device will have the tado app>&geoTrackingEnabled=false&deviceName=tado-connect&devicePlatform=tado-connect&deviceUuid=tado-connect&deviceOsVer=0.1&appVersion=0.1
+```
 
 This will give you the deviceId, and device specific username and password. (no need to put your real tado credentials in the config.yaml)
 
