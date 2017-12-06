@@ -1,0 +1,17 @@
+{
+    "name": "martijn02/tado-connect",
+    "description": "A tool to check whether users are connected to a UniFi Wifi AP, and then marks them as \"at home\" or \"away\" on a tado thermostat",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Martijn van Zal",
+            "email": "martijn@vanzal.com"
+        }
+    ],
+    "require": {
+        "art-of-wifi/unifi-api-client": "^1.1",
+        "guzzlehttp/guzzle": "~6.0",
+        "symfony/yaml": "^3.4",
+        "monolog/monolog": "^1.23"
+    }
+}
