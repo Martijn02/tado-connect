@@ -4,6 +4,7 @@ date_default_timezone_set('Europe/Amsterdam');
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 use Symfony\Component\Yaml\Yaml;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -98,6 +99,9 @@ function tadoRequest($url, $userConfig = false, $data = false) {
         $response = $tado->request($method, $url, $params);
         return json_decode($response->getBody());
     } catch (BadResponseException $e) {
+        $logger->addError($e->getMessage());
+        return false;
+    } catch (ConnectException $e) {
         $logger->addError($e->getMessage());
         return false;
     }
