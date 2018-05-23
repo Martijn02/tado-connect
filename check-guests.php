@@ -32,7 +32,6 @@ $unifiConnection = new UniFi_API\Client(
 $unifiConnection->login();
 $clients = $unifiConnection->list_clients();
 
-
 foreach($config['users'] as $user) {
     $user['present'] = false;
 
@@ -93,6 +92,7 @@ function tadoRequest($url, $userConfig = false, $data = false) {
     if ($data) {
         $method = 'PUT';
         $params['body'] = json_encode($data);
+        $params['headers'] = ['Content-Type' => 'application/json; encoding=UTF-8'];
     }
     
     try {
